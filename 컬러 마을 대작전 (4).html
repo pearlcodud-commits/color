@@ -1,0 +1,181 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>컬러 마을 대작전</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7e0;--card:#fff;--ink:#161616;--line:#161616;--dot:#ffe0a3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17132b;--card:#2a2250;--ink:#fff;--line:#fff;--dot:#2c2457}}
+:root[data-theme="dark"]{--bg:#17132b;--card:#2a2250;--ink:#fff;--line:#fff;--dot:#2c2457}
+*{box-sizing:border-box}html,body{margin:0}body{font-family:"Jua","Noto Sans KR",sans-serif;background:var(--bg) radial-gradient(var(--dot) 2.5px,transparent 2.5px) 0 0/24px 24px;color:var(--ink);min-height:100vh}
+header{text-align:center;padding:14px 10px 4px}h1{margin:0;font-size:clamp(28px,7vw,46px);letter-spacing:1px}h1 span{display:inline-block;text-shadow:3px 3px 0 var(--line);animation:bn 2s ease-in-out infinite}
+@keyframes bn{50%{transform:translateY(-6px) rotate(4deg)}}
+.hud{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0}.hud span,.hud button{border:3px solid var(--line);background:var(--card);border-radius:99px;padding:3px 14px;box-shadow:3px 3px 0 var(--line);font:inherit;color:var(--ink)}
+.gal{max-width:520px;margin:6px auto;padding:0 12px;text-align:center;position:relative}
+#mz{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;border:4px solid var(--line);border-radius:16px;padding:6px;background:var(--card);box-shadow:7px 7px 0 var(--line)}
+.c{aspect-ratio:1;border-radius:6px;background:repeating-linear-gradient(45deg,#c9c9d1 0 4px,#e8e8ee 4px 8px)}.c.n{animation:sp .55s}.c.d{animation:dr .5s}
+@keyframes sp{0%{transform:scale(0) rotate(-60deg)}60%{transform:scale(1.7) rotate(10deg);z-index:2;position:relative}100%{transform:scale(1)}}@keyframes dr{0%{transform:translateY(-8px);opacity:.3}100%{transform:none;opacity:1}}
+.pbar{height:14px;border:3px solid var(--line);border-radius:9px;background:var(--card);margin-top:10px;overflow:hidden}.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b7b,#ffd23f,#5eead4,#8fb4ff);transition:width .5s}
+#lvm{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:#ffd23fee;color:#161616;border:4px solid #161616;border-radius:16px;font-size:26px;animation:pp .5s}#lvm.show{display:flex}@keyframes pp{from{transform:scale(.5)}}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px 8px 4px}
+.btn,.opt{border:3px solid var(--line);border-radius:14px;background:var(--c,#ffd23f);color:#161616;font:inherit;font-size:18px;padding:10px 16px;box-shadow:4px 4px 0 var(--line);cursor:pointer;transition:transform .12s,box-shadow .12s}
+.btn:hover,.opt:hover:not(:disabled){transform:translate(-2px,-3px) rotate(-1deg);box-shadow:7px 7px 0 var(--line)}.btn:active,.opt:active:not(:disabled){transform:translate(4px,4px);box-shadow:0 0 0 var(--line)}
+nav .btn{opacity:.75}nav .btn.on{opacity:1;transform:translateY(-3px) scale(1.06)}
+main{max-width:860px;margin:auto;padding:8px 14px 40px}section{display:none;background:var(--card);border:4px solid var(--line);border-radius:22px;padding:18px;box-shadow:8px 8px 0 var(--line)}section.on{display:block}
+h2{margin:0 0 8px}.q{font-size:21px;line-height:1.55;margin:10px 0}.opt{display:block;width:100%;text-align:left;margin:9px 0}.opt:disabled{opacity:.55;cursor:default}.opt.ok{opacity:1;outline:5px solid #16a34a}.opt.no{outline:5px solid #dc2626;animation:sh .3s}@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.hint{background:#ffd23f55;border:3px dashed var(--line);border-radius:12px;padding:8px 12px;margin:10px 0}.step{border-left:8px solid #ff7b7b;padding-left:12px;margin:16px 0}.step:nth-of-type(2){border-color:#ffd23f}.step:nth-of-type(3){border-color:#5eead4}.step:nth-of-type(4){border-color:#8fb4ff}
+label{display:block;margin:8px 0 3px}textarea,select,input[type=text]{font:inherit;font-size:17px;padding:8px;border:3px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}textarea,input[type=text]{width:100%}textarea{min-height:64px}
+.row{margin:8px 0;line-height:2.3}.chip{display:inline-block;border:3px solid var(--line);border-radius:99px;padding:1px 12px;margin:3px;background:var(--c)}.good{outline:4px solid #16a34a}.bad{outline:4px solid #dc2626}
+.hud2{margin-bottom:6px}.hud2 span{border:3px solid var(--line);border-radius:99px;padding:2px 14px;background:#ffd23f;color:#161616}.mt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dot{position:fixed;width:12px;height:12px;border-radius:50%;pointer-events:none;z-index:99;border:2px solid #161616;animation:dt .9s ease-out forwards}@keyframes dt{to{transform:translate(var(--dx),var(--dy)) scale(.4);opacity:0}}
+
+:root{--gray:#d4d4dd}@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--gray:#5b5683}}:root[data-theme="dark"]{--gray:#5b5683}
+.gal{max-width:900px}#vil{width:100%;height:auto;display:block;border:4px solid var(--line);border-radius:16px;box-shadow:7px 7px 0 var(--line);background:var(--card)}
+.pt{fill:var(--gray);stroke:var(--line);stroke-width:2.5;transition:fill .5s,stroke .5s}.pt.st{fill:none;stroke:var(--gray)}.pt.n{animation:sp .6s;transform-box:fill-box;transform-origin:center}
+.tx{font:700 18px "Jua",sans-serif;fill:#161616;text-anchor:middle;pointer-events:none}
+.zs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;font-size:15px}.zs .pbar{margin-top:3px}
+#fw{transform-origin:800px 215px}.zC #fw{animation:spn 25s linear infinite}@keyframes spn{to{transform:rotate(360deg)}}
+.zA [data-k=siren]{animation:bl .6s infinite}@keyframes bl{50%{opacity:.25}}.zB [data-k=sign]{animation:wg 1.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes wg{50%{transform:rotate(-4deg)}}
+#lvm{flex-direction:column;gap:12px;text-align:center;line-height:1.4}
+</style></head><body>
+<header><h1 id="ttl">컬러 마을 대작전</h1><p style="margin:4px 12px">🩶 회색 도둑이 마을의 색을 몽땅 훔쳤어요! 활동마다 건물이 달라요: 🔴 소방서 · 🟡 빵집 · 🔵 놀이공원. 맞혀야만 색이 돌아와요! 🌈</p>
+<div class="hud"><span>⭐ 점수 <b id="sc">0</b></span><span>🌈 마을 <b id="lv">1</b>회차</span><button id="mu">🔇 음악</button></div></header>
+<div class="gal"><svg id="vil" viewBox="0 0 900 470" role="img" aria-label="컬러 마을"></svg><div class="zs"><div><span id="zA"></span><div class="pbar"><i id="bA" style="background:#ff7b54"></i></div></div><div><span id="zB"></span><div class="pbar"><i id="bB" style="background:#ffca3a"></i></div></div><div><span id="zC"></span><div class="pbar"><i id="bC" style="background:#4cc9f0"></i></div></div></div><div id="lvm"></div></div>
+<nav><button class="btn on" data-t="s1" style="--c:#ff7b7b">🔴 읽기 → 🚒 소방서</button><button class="btn" data-t="s2" style="--c:#ffd23f">🟡 낱말 → 🥖 빵집</button><button class="btn" data-t="s3" style="--c:#8fb4ff">🔵 퀴즈 → 🎡 놀이공원</button></nav>
+<main>
+<section id="s1" class="on"><h2>「저작권을 왜 지켜야 하나요?」 읽기 활동</h2>
+<p>의견을 제시하는 글은 <b>글쓴이의 의견(주장)</b>과 <b>까닭</b>을 찾으며 읽어요. 알맞지 않은 보기도 섞여 있어요! 문제를 처음 맞힐 때마다 🚒 <b>소방서</b>가 한 부분씩 칠해져요! (13부분)</p>
+<div class="step"><h3>🚪 읽기 전</h3><div id="r1"></div></div>
+<div class="step"><h3>🗺️ 읽는 중 ①: 문단마다 중심 내용 고르기</h3><div id="pg"></div><button class="btn" id="pc" style="--c:#5eead4">✅ 확인하기</button> <span id="pm"></span></div>
+<div class="step"><h3>🗺️ 읽는 중 ②: 의도, 의견과 까닭, 새로 알게 된 것, 예상 확인</h3><div id="r2"></div></div>
+<div class="step"><h3>🏆 읽은 후 — 내 생각으로 써 봐요!</h3>
+<div class="hint">📝 요약 예시: 창작자는 시간과 노력을 들여 작품을 만들기 때문에, 우리는 허락을 받고 이용해야 한다. 저작권을 지키면 문화가 발전하고 정직한 사회를 만들 수 있다.</div>
+<label>① 글의 내용을 두세 문장으로 요약해 보세요.</label><textarea class="sv" id="s6"></textarea>
+<div class="hint">🔎 더 알고 싶은 것 예시: 저작권을 지킨 작품에는 어떤 표시가 있을까? / 다른 나라의 저작권 규칙은 어떻게 다를까?</div>
+<label>② 더 알고 싶은 것을 쓰고 책이나 인터넷에서 찾아보세요.</label><textarea class="sv" id="s7"></textarea>
+<button class="btn" id="d2" style="--c:#ff7b7b">🎉 활동 완료! (+20점)</button></div></section>
+<section id="s2"><h2>🟡 어려운 낱말 빈칸 색칠</h2><p>빈칸에 알맞은 낱말을 골라요. 처음 맞히면 낱말 뜻이 나오고 🥖 <b>빵집</b>이 한 부분씩 칠해져요! (14부분)</p><div id="vb"></div><button class="btn" id="vc" style="--c:#5eead4">✅ 확인</button> <button class="btn" id="vs">🔀 다시 섞기</button></section>
+<section id="s3"><h2>🔵 컬러 퀴즈 — 🎡 놀이공원 대공사</h2><div id="qz"></div></section>
+</main>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],shuf=a=>{a=[...a];for(let i=a.length;i>1;){const j=Math.random()*i|0;i--;[a[i],a[j]]=[a[j],a[i]]}return a};
+const COL=['#ff7b7b','#ffd23f','#5eead4','#8fb4ff'],W=10,N=80;
+let S={score:0,round:0,p:[],r:{},f:{},best:0};
+try{S=Object.assign(S,JSON.parse(localStorage.getItem('mcc2')||'{}'));S.r=S.r||{};S.f=S.f||{};S.p=S.p||[]}catch(e){}
+const save=()=>{try{localStorage.setItem('mcc2',JSON.stringify(S))}catch(e){}};
+$('#ttl').innerHTML=[...'컬러 마을 대작전'].map((c,i)=>c==' '?' ':`<span style="color:${COL[i%4]};animation-delay:${i*.15}s">${c}</span>`).join('');
+// 마을 장면: 모든 부분은 처음엔 회색, 맞힐 때마다 색이 칠해져요
+const P=[],ZN={A:'🚒 소방서',B:'🥖 빵집',C:'🎡 놀이공원'},ad=(z,svg,col,o)=>P.push(Object.assign({z,svg,col},o||{}));
+ad('C','<rect x="0" y="0" width="900" height="345"/>','#9bdcff');
+['#ff595e','#ff924c','#ffca3a','#8ac926','#1982c4','#6a4c93','#f15bb5'].forEach((c,i)=>{const r=300-i*10;ad('C',`<path d="M${450-r} 350A${r} ${r} 0 0 1 ${450+r} 350" style="stroke-width:9"/>`,c,{st:1})});
+[[110,70],[330,40],[560,85]].forEach(([x,y])=>ad('C',`<ellipse cx="${x}" cy="${y}" rx="52" ry="20"/>`,'#ffffff'));
+ad('C','<circle cx="860" cy="60" r="34"/>','#ffd60a');ad('C','<rect x="0" y="340" width="900" height="130"/>','#7bd96b');ad('C','<rect x="0" y="402" width="900" height="44"/>','#4a4e69');
+[['<rect x="40" y="180" width="220" height="160"/>','#ff7b54'],['<polygon points="28,182 150,115 272,182"/>','#5e60ce'],['<rect x="62" y="238" width="104" height="102"/>','#ffd166'],['<path d="M62 262H166M62 286H166M62 310H166" style="stroke-width:6"/>','#7b2cbf',1],['<rect x="190" y="262" width="52" height="78"/>','#4cc9f0'],['<rect x="62" y="196" width="46" height="30"/>','#80ed99'],['<rect x="118" y="196" width="46" height="30"/>','#cdb4db'],['<rect x="176" y="200" width="76" height="30"/>','#ffee32'],['<rect x="232" y="110" width="34" height="72"/>','#f72585'],['<circle data-k="siren" cx="249" cy="100" r="13"/>','#ff3d3d'],['<rect x="70" y="352" width="130" height="42" rx="6"/>','#e63946'],['<rect x="200" y="362" width="48" height="32" rx="6"/>','#ffbe0b'],['<path d="M92 398a13 13 0 1 0 26 0a13 13 0 1 0 -26 0zM212 398a13 13 0 1 0 26 0a13 13 0 1 0 -26 0z"/>','#222']].forEach(a=>ad('A',a[0],a[1],a[2]?{st:1}:{}));
+[['<rect x="350" y="200" width="200" height="140"/>','#ffd6a5'],['<rect x="338" y="170" width="224" height="32" rx="6"/>','#bc6c25'],...[0,1,2,3,4].map(i=>[`<rect x="${350+i*40}" y="204" width="40" height="26"/>`,['#ff595e','#ffca3a','#8ac926','#1982c4','#c77dff'][i]]),['<rect x="448" y="254" width="62" height="86"/>','#6a994e'],['<rect x="366" y="248" width="68" height="50"/>','#a2d2ff'],['<rect data-k="sign" x="390" y="128" width="120" height="36" rx="8"/>','#f15bb5'],['<rect x="520" y="130" width="26" height="42"/>','#b56576'],['<ellipse cx="400" cy="282" rx="24" ry="12"/>','#e09f3e'],['<rect x="356" y="312" width="30" height="28"/>','#e76f51'],['<circle cx="371" cy="300" r="14"/>','#38b000']].forEach(a=>ad('B',a[0],a[1]));
+[['<polygon points="595,275 645,225 645,275"/>','#ff4d6d'],['<polygon points="645,225 695,275 645,275"/>','#ffb703'],['<rect x="595" y="275" width="50" height="65"/>','#4cc9f0'],['<rect x="645" y="275" width="50" height="65"/>','#b5179e'],['<path d="M633 340V312Q645 296 657 312V340Z"/>','#3a0ca3'],['<polygon points="645,225 645,200 668,210 645,218"/>','#06d6a0']].forEach(a=>ad('C',a[0],a[1]));
+ad('C','<path d="M800 215L765 340M800 215L835 340" style="stroke-width:8"/>','#7b2cbf',{st:1});
+ad('C','<circle cx="800" cy="215" r="75" style="stroke-width:6"/>','#ff006e',{st:1,g:'fw'});ad('C','<path d="M800 140V290M725 215H875M747 162L853 268M853 162L747 268" style="stroke-width:3"/>','#8338ec',{st:1,g:'fw'});
+for(let k=0;k<12;k++)ad('C',`<circle cx="${(800+75*Math.cos(k*Math.PI/6)).toFixed(1)}" cy="${(215+75*Math.sin(k*Math.PI/6)).toFixed(1)}" r="11"/>`,`hsl(${k*30} 90% 55%)`,{g:'fw'});
+ad('C','<circle cx="800" cy="215" r="14"/>','#ffbe0b',{g:'fw'});
+[[590,170],[615,135],[640,172],[665,128],[690,172],[715,140],[740,100],[880,150]].forEach(([x,y],i)=>ad('C',`<ellipse cx="${x}" cy="${y}" rx="13" ry="16"/>`,`hsl(${i*45+10} 95% 60%)`));
+[[305,300,26],[575,305,20],[712,310,16]].forEach(([x,y,r],i)=>{ad('C',`<rect x="${x-5}" y="${y+10}" width="10" height="${330-y}"/>`,'#8d5a2b');ad('C',`<circle cx="${x}" cy="${y}" r="${r}"/>`,['#2ecc71','#27ae60','#52b788'][i])});
+[[312,358],[326,368],[566,360],[580,372],[600,362],[884,362],[866,374],[300,372],[590,382],[872,388]].forEach(([x,y],i)=>ad('C',`<circle cx="${x}" cy="${y}" r="7"/>`,`hsl(${i*37+10} 95% 62%)`));
+$('#vil').innerHTML=(()=>{let h='',g='';P.forEach((p,i)=>{if((p.g||'')!=g){if(g)h+='</g>';if(p.g)h+=`<g id="${p.g}">`;g=p.g||''}h+=p.svg.replace(/^<(\w+)/,`<$1 class="pt${p.st?' st':''}" data-i="${i}"`)});if(g)h+='</g>';return h+'<text class="tx" x="214" y="221">소방서</text><text class="tx" x="450" y="153">빵집</text><text class="tx" x="800" y="385" style="font-size:22px">놀이공원</text>'})();
+const cnt=z=>S.p.filter(i=>P[i].z==z).length,tot=z=>P.filter(p=>p.z==z).length,allDone=()=>['A','B','C'].every(z=>cnt(z)>=tot(z));let mtk=0;
+function render(){const sv=$('#vil');sv.querySelectorAll('.pt').forEach(e=>{const i=+e.dataset.i,p=P[i],on=S.p.includes(i);e.style[p.st?'stroke':'fill']=on?p.col:''});['A','B','C'].forEach(z=>{const n=cnt(z),t=tot(z);$('#z'+z).textContent=`${ZN[z]} ${n}/${t}${n>=t?' ✅':''}`;$('#b'+z).style.width=n/t*100+'%';sv.classList.toggle('z'+z,n>=t)});$('#sc').textContent=S.score;$('#lv').textContent=S.round+1;sv.style.filter=S.round?`hue-rotate(${S.round*70}deg)`:''}
+function add(n){S.score+=n;save();$('#sc').textContent=S.score}
+function showMsg(h,ms){const e=$('#lvm'),k=++mtk;e.innerHTML=h;e.classList.add('show');if(ms)setTimeout(()=>{if(k==mtk)e.classList.remove('show')},ms)}
+function finale(){sfx(2);burst(innerWidth/2,250,30);showMsg('🎉 컬러 마을 완성! 🎉<br><button class="btn" style="--c:#5eead4" onclick="again()">🌈 새 색깔로 다시 칠하기</button> <button class="btn" onclick="$(\'#lvm\').classList.remove(\'show\')">구경하기</button>',0)}
+function again(){S.round++;S.p=[];S.r={};save();location.reload()}
+function paint(z){const f=P.map((p,i)=>i).filter(i=>P[i].z==z&&!S.p.includes(i));if(!f.length)return 0;const i=f[Math.random()*f.length|0];S.p.push(i);save();render();const e=$('#vil [data-i="'+i+'"]');e.classList.add('n');const r=e.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,8);
+if(allDone())setTimeout(finale,700);else if(f.length==1){sfx(2);showMsg(ZN[z]+' 완성! 🎉',2200)}return 1}
+function burst(x,y,n=14){for(let k=0;k<n;k++){const d=document.createElement('i'),a=Math.random()*6.283,r=40+Math.random()*90;d.className='dot';d.style.cssText=`left:${x}px;top:${y}px;background:${COL[k%4]};--dx:${Math.cos(a)*r}px;--dy:${Math.sin(a)*r}px`;document.body.appendChild(d);setTimeout(()=>d.remove(),900)}}
+const fx=e=>burst(e&&e.clientX||innerWidth/2,e&&e.clientY||300);
+function award(k,n){if(S.r[k])return 0;S.r[k]=1;add(n);paint(k[0]=='v'?'B':'A');return n}
+// 소리
+let ac,mi=0,mt=null;
+function tone(f,d=.12,t='sine',v=.08,s=0){try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state=='suspended')ac.resume();const o=ac.createOscillator(),g=ac.createGain(),n=ac.currentTime+s;o.type=t;o.frequency.value=f;o.connect(g);g.connect(ac.destination);g.gain.setValueAtTime(v,n);g.gain.exponentialRampToValueAtTime(.001,n+d);o.start(n);o.stop(n+d)}catch(e){}}
+function sfx(k){if(k==1){tone(660,.1);tone(880,.15,'sine',.08,.1)}else if(k==0)tone(180,.25,'sawtooth',.06);else[523,659,784,1047].forEach((f,i)=>tone(f,.2,'square',.05,i*.1))}
+const NT=[523,659,784,659,587,740,880,740];
+$('#mu').onclick=()=>{if(mt){clearInterval(mt);mt=null;$('#mu').textContent='🔇 음악'}else{$('#mu').textContent='🎵 음악';mt=setInterval(()=>{tone(NT[mi%8]*(((mi/8)|0)%2?.75:1),.25,'triangle',.04);mi++},280)}};
+$$('nav .btn').forEach(b=>b.onclick=()=>{$$('nav .btn,section').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.t).classList.add('on')});
+$$('.sv').forEach(i=>{if(S.f[i.id]!=null)i.value=S.f[i.id];i.addEventListener('input',()=>{S.f[i.id]=i.value;save()})});
+$('#d2').onclick=e=>{award('d2',20);fx(e);sfx(2)};
+// 읽기 활동
+function mc(el,pre,items){el.innerHTML='';items.forEach((it,k)=>{const d=document.createElement('div');d.innerHTML=`<div class="q">${it[0]}</div>`;const m=document.createElement('div');shuf(it[1].map((_,i)=>i)).forEach((j,n)=>{const b=document.createElement('button');b.className='opt';b.style.setProperty('--c',COL[n%4]);b.textContent=it[1][j];b.onclick=e=>{if(j==it[2]){b.classList.add('ok');d.querySelectorAll('.opt').forEach(x=>x.disabled=1);const g=award(pre+k,5);m.innerHTML='<div class="hint">✅ '+it[3]+(g?' (+5점, 🎨 +1칸)':'')+'</div>';sfx(1);fx(e)}else{b.classList.add('no');b.disabled=1;m.innerHTML='<div class="hint">🤔 다시 생각해 봐요!</div>';sfx(0)}};d.appendChild(b)});d.appendChild(m);el.appendChild(d)})}
+const R1=[
+["제목 「저작권을 왜 지켜야 하나요?」를 보고 짐작한 내용으로 알맞은 것은?",["저작권을 지켜야 하는 까닭이 나올 것 같다","맛있는 요리 순서가 나올 것 같다","공룡 이름이 나올 것 같다"],0,"제목에서 글의 내용을 짐작하는 것이 읽기 전 활동이에요."],
+["'저작권'에 대해 경험이나 아는 것을 떠올린 말로 알맞은 것은?",["친구 그림을 허락 없이 쓰면 안 된다고 들은 적이 있다","글쓴이는 저작권을 지키자고 주장한다","이 글을 두 문장으로 요약하면…"],0,"아는 것 떠올리기는 읽기 전에 내 경험을 생각하는 거예요. 나머지는 읽으면서 또는 읽은 뒤에 하는 활동이에요."],
+["읽기 전 활동이 아닌 것은?",["제목 보고 내용 짐작하기","내가 아는 것 떠올리기","더 알고 싶은 것을 책에서 찾아보기"],2,"더 알고 싶은 것 찾아보기는 읽은 후 활동이에요."]];
+const R2=[
+["글쓴이가 이 글을 쓴 의도(글의 중심 생각)는?",["창작자의 권리를 보호하기 위해 저작권을 지키자","저작권을 팔자","좋은 작품을 많이 사자"],0,"글쓴이는 4문단에서 저작권을 지키자고 정리했어요."],
+["글쓴이의 의견과 그 까닭을 바르게 짝지은 것은?",["의견: 저작권을 지켜야 한다 / 까닭: 창작자의 시간과 노력을 인정하고 보호해야 하기 때문이다","의견: 창작자의 시간과 노력이 소중하다 / 까닭: 저작권을 지켜야 한다","의견: 문화 산업이 발전한다 / 까닭: 저작권은 필요 없다"],0,"의견은 하고 싶은 말(주장), 까닭은 그렇게 생각한 이유예요."],
+["읽는 중 활동으로 알맞지 않은 것은?",["문단별 중심 내용 찾기","새롭게 알게 된 것 찾기","글을 읽고 요약하기"],2,"요약하기는 읽은 후 활동이에요."],
+["이 글에서 새롭게 알게 된 것으로 알맞은 것은?",["저작권을 지키지 않으면 문화 산업과 경제 성장에도 영향이 있다","저작권은 어른만 지키면 된다","내가 만든 작품은 누구나 써도 된다"],0,"새롭게 알게 된 것은 글에서 확인한 내용이어야 해요."],
+["예상한 내용이 맞는지 확인하는 말로 알맞은 것은?",["“저작권을 지켜야 하는 까닭이 나올 것 같았는데 그대로여서 맞았어.”","“안 읽어도 다 알 것 같아.”","“이 글을 세 문장으로 요약하면…”"],0,"예상과 글의 내용을 비교하는 것이 읽는 중 활동이에요."]];
+const CI=["내 작품을 허락 없이 쓰면 기분이 나쁘기 때문에 저작권을 지켜야 한다","저작권은 창작자의 권리이므로 허락을 받고 이용해야 한다","저작권을 지키지 않으면 문화와 경제가 발전하지 못한다","허락을 받고 사용하고, 침해했다면 바로 인정하고 수정해야 한다","창작물은 누구나 마음대로 써도 된다","저작권은 외국에서만 지켜야 한다"];
+const PG=["“여러 날에 걸쳐 시간과 정성을 들여…” (1문단)","“오늘날, 저작권은 우리의 일상생활…” (2문단)","“만약 사람들이 저작권을 잘 지키지…” (3문단)","“우리는 저작권을 지키기 위하여…” (4문단)"];
+mc($('#r1'),'a',R1);mc($('#r2'),'b',R2);
+const po=shuf(CI.map((_,i)=>i));
+$('#pg').innerHTML=PG.map((p,i)=>`<div class="row">${p}<br><select data-i="${i}"><option value="-1">중심 내용 고르기</option>${po.map(j=>`<option value="${j}">${CI[j]}</option>`).join('')}</select></div>`).join('');
+$('#pc').onclick=e=>{let ok=0,g=0;$$('#pg select').forEach(s=>{const i=+s.dataset.i,c=+s.value==i;s.className=c?'good':'bad';if(c){ok++;g+=award('p'+i,5)}});sfx(ok==PG.length?2:ok?1:0);$('#pm').textContent=ok+' / '+PG.length+' 정답'+(g?' (+'+g+'점, 🎨 +'+g/5+'칸)':'');if(ok==PG.length)fx(e)};
+const V=[["저작권","창작물에 대해 만든 사람이 가지는 권리","우리는 ___을 지키기 위해 노력해야 해요."],["창작물","생각이나 감정을 표현해 새로 만든 작품","글, 그림, 음악 같은 ___은 만든 사람에게 소중해요."],["창작자","창작물을 만든 사람","___는 오랜 시간 공들여 작품을 만들어요."],["인정","그렇다고 받아들이는 것","만든 사람의 시간과 노력을 ___해 주어야 해요."],["보호","위험하지 않게 지켜 주는 것","창작자의 권리를 ___해야 해요."],["허락","청하는 것을 들어주는 것","남의 그림을 쓰려면 먼저 ___을 받아야 해요."],["침해","남의 권리를 해치는 것","실수로 저작권을 ___했다면 바로 인정해야 해요."],["표현","생각이나 느낌을 겉으로 드러내는 것","저작권은 감정을 ___한 창작물에 대한 권리예요."],["일상생활","날마다 하는 생활","저작권은 ___ 속에서 자주 접하는 개념이에요."],["수준","어떤 것의 높고 낮은 정도","작품이 줄면 문화의 ___도 낮아져요."],["산업","물건을 만들어 파는 일","문화와 관련된 ___도 발전하지 못해요."],["수출","다른 나라에 물건을 파는 것","문화 상품을 ___하지 못하게 돼요."],["정직","거짓 없이 바르고 곧음","저작권을 지키면 ___한 사회를 만들 수 있어요."],["원칙","꼭 지켜야 할 기본 규칙","허락을 받고 사용하는 것이 ___이에요."]];
+function vr(){const bank=shuf(V.map(v=>v[0]));$('#vb').innerHTML='<div>'+bank.map((w,i)=>`<span class="chip" style="--c:${COL[i%4]}">${w}</span>`).join('')+'</div>'+shuf(V).map(v=>{const p=v[2].split('___');return `<div class="row" data-w="${v[0]}">${p[0]}<select><option value="">?</option>${bank.map(w=>`<option>${w}</option>`).join('')}</select>${p[1]} <small></small></div>`}).join('')}
+$('#vc').onclick=e=>{let ok=0,g=0;$$('#vb .row').forEach(r=>{const s=r.querySelector('select'),c=s.value==r.dataset.w;s.className=c?'good':'bad';r.querySelector('small').textContent=c?'💡 '+V.find(v=>v[0]==r.dataset.w)[1]:'';if(c){ok++;g+=award('v'+r.dataset.w,3)}});sfx(ok==V.length?2:ok?1:0);if(ok==V.length)fx(e);alert(ok+' / '+V.length+' 정답!'+(g?' (+'+g+'점, 🎨 +'+g/3+'칸)':''))};
+$('#vs').onclick=vr;vr();
+const A=[[
+"여러 날에 걸쳐 시간과 정성을 들여 만든 여러분의 [작품|그림]을 친구가 내 [허락|생각] 없이 사용한 상황을 상상해 봅시다.","심지어 그 친구는 그 작품으로 [선생님|부모님]께 칭찬을 받았다고 합니다.","이럴 때 여러분은 어떤 기분이 들까요?","여러분의 시간과 정성이 [도둑맞았다|돌려받았다]는 생각이 들 것입니다.","그리고 그 친구가 칭찬을 받은 것이 [불공평하다|공평하다]고 느낄 수도 있습니다.","왜냐하면 그 작품은 여러분의 작품이기 때문입니다.","그렇다면 다른 사람이 내 작품을 나의 허락도 없이 몰래 가져다 쓰면 여러분의 기분은 어떨까요?","저작권을 지켜야 하는 이유가 여기에 있습니다."],[
+"오늘날, 저작권은 우리의 [일상생활|학교생활] 속에서 쉽게 자주 접하게 되는 개념입니다.","저작권이란 사람의 [생각|몸무게] 또는 감정을 표현한 [창작물|물건]에 대하여 이를 만든 사람이 가지는 [권리|의무]를 말합니다.","창작자는 오랜 시간 공들여 소중한 창작물을 만듭니다.","따라서 창작물을 만든 사람의 [시간|돈]과 노력을 [인정|무시]하고 [보호|공개]해 주어야 합니다.","창작자는 자신이 만든 창작물을 다른 사람이 이용할 수 있도록 [허락|금지]하거나 허락하지 않을 권리가 있습니다.","그렇기 때문에 우리는 다른 사람의 창작물을 [마음대로|함께] 이용해서는 안 되며, 만든 사람에게 [허락|칭찬]을 받고 창작물을 이용해야 합니다."],[
+"만약 사람들이 저작권을 잘 지키지 않으면 우리 사회는 어떻게 될까요?","창작자는 더 [좋은|나쁜] 작품을 만들기 위한 [노력|여행]을 하지 않게 될 것입니다.","좋은 작품이 만들어지지 않으면 사람들이 누릴 수 있는 [문화|운동]의 [수준|가격]도 점점 낮아지게 될 가능성이 큽니다.","오늘날 우리의 눈과 귀를 즐겁게 만들어 주는 [음악|음식]이나 재미있는 영화, 책도 없어지겠지요.","문화와 관련된 [산업|농업]도 발전하지 않아 [일자리|놀이터]도 사라지고 문화 상품을 [수출|수입]하지 못해 결국 우리나라의 [경제적인|정치적인] 성장도 기대할 수 없게 됩니다."],[
+"우리는 저작권을 지키기 위하여 [노력|포기]해야 합니다.","다른 사람의 글, 그림, 음악, 동영상을 사용할 때에는 만든 사람에게 [먼저|나중에] 허락을 받아야 합니다.","친구의 작품이나 [인터넷|도서관]에서 가져온 자료도 허락을 받고 사용하는 것이 [원칙|예외]입니다.","실수로 저작권을 [침해|보호]했다면 바로 인정하고 [수정|삭제]하는 태도가 필요합니다.","저작권을 지키면 창작자의 권리를 보호할 뿐만 아니라 [정직한|화려한] 사회를 만드는 데 [기여|방해]할 수 있습니다."]];
+const clean=s=>s.replace(/\[([^|\]]+)\|[^\]]+\]/g,'$1'),ref=k=>`${k.pi+1}문단 ${k.si+1}째 문장`,norm=s=>s.replace(/\s/g,'').toLowerCase();
+const KS=[];A.forEach((p,pi)=>p.forEach((s,si)=>[...s.matchAll(/\[([^|\]]+)\|([^\]]+)\]/g)].forEach((m,mi)=>KS.push({pi,si,s,m:m[0],a:m[1],w:m[2],id:pi+'.'+si+'.'+mi}))));
+// 직접 만든 문제 [난이도,문제,[보기],정답,힌트,해설]
+const H=[
+[0,"저작권이란 무엇인가요?",["사람의 생각이나 감정을 표현한 창작물에 대해 만든 사람이 가지는 권리","물건을 싸게 살 수 있는 권리","책을 빌릴 수 있는 권리","운동장을 쓸 수 있는 권리"],0,"2문단 2째 문장","저작권은 창작자가 가지는 권리예요."],
+[0,"글쓴이가 맨 처음 상상해 보자고 한 상황은?",["내 작품을 친구가 허락 없이 사용한 상황","친구에게 선물을 받은 상황","상을 받은 상황","전학을 간 상황"],0,"1문단 1째 문장","내 작품을 허락 없이 쓴 상황이에요."],
+[0,"친구가 내 작품으로 선생님께 칭찬을 받았다면 들 수 있는 마음은?",["내 시간과 정성을 도둑맞은 것 같고 불공평하다","매우 기쁘고 자랑스럽다","아무 느낌이 없다","친구가 고맙다"],0,"1문단 4~5째 문장","시간과 정성이 도둑맞았다고 느끼고 불공평하다고 느낄 수 있어요."],
+[0,"창작자가 가지는 권리로 알맞은 것은?",["창작물 이용을 허락하거나 허락하지 않을 권리","남의 작품을 마음대로 쓸 권리","작품을 숨겨야 할 의무","작품을 버려야 할 의무"],0,"2문단 5째 문장","창작자는 이용을 허락할지 말지 정할 수 있어요."],
+[0,"의견을 제시하는 글은 어떤 글인가요?",["어떤 문제에 대해 자신의 생각이나 주장을 밝혀 쓴 글","물건 조립 방법을 순서대로 쓴 글","동물의 특징을 설명한 글","하루 일을 적은 글"],0,"교과서 로봇 말풍선","의견을 제시하는 글은 문제에 대한 생각이나 주장을 밝혀 써요."],
+[0,"의견을 제시하는 글을 읽은 경험으로 알맞은 것은?",["복도에서 바르게 걷자는 글","김밥 만드는 순서를 적은 글","멸종 위기 동물 도감","장난감 조립 설명서"],0,"교과서 말풍선 대화","바르게 걷자고 주장하는 글이 의견을 제시하는 글이에요."],
+[1,"글쓴이의 의견(주장)으로 알맞은 것은?",["우리는 저작권을 지켜야 한다","저작권은 없어져야 한다","창작물은 누구나 마음대로 써도 된다","저작권은 어른만 지키면 된다"],0,"글 전체(특히 4문단)","글쓴이는 저작권을 지켜야 한다고 주장해요."],
+[1,"저작권을 지키지 않으면 창작자는 어떻게 될 것이라고 했나요?",["더 좋은 작품을 만들기 위한 노력을 하지 않게 된다","더 많은 작품을 만든다","상을 받게 된다","작품을 모두 공개한다"],0,"3문단 2째 문장","노력을 하지 않게 될 거라고 했어요."],
+[1,"좋은 작품이 만들어지지 않으면 어떤 일이 생길 수 있다고 했나요?",["문화의 수준이 점점 낮아질 가능성이 크다","학교가 사라진다","물건값이 내린다","날씨가 나빠진다"],0,"3문단 3째 문장","사람들이 누릴 문화의 수준이 낮아져요."],
+[1,"허락을 받지 않고 써도 되는 것은?",["내가 직접 그린 내 그림","친구가 만든 작품","인터넷에서 가져온 자료","다른 사람의 동영상"],0,"4문단 2~3째 문장","내가 만든 창작물은 내 것이라 남의 허락이 필요 없어요."],
+[1,"실수로 저작권을 침해했을 때 필요한 태도는?",["바로 인정하고 수정하는 태도","모른 척하는 태도","친구 탓을 하는 태도","더 많이 가져다 쓰는 태도"],0,"4문단 4째 문장","실수는 바로 인정하고 고쳐야 해요."],
+[2,"우리나라의 경제적인 성장도 기대할 수 없게 되는 까닭은?",["문화 산업이 발전하지 못해 일자리가 사라지고 문화 상품을 수출하지 못하기 때문","사람들이 책을 너무 많이 사서","학교가 늘어나서","음악이 너무 많아져서"],0,"3문단 5째 문장","산업 발전 → 일자리, 수출과 연결돼요."],
+[2,"저작권을 지키면 얻을 수 있는 좋은 점으로 글에 나온 것은?",["창작자의 권리를 보호하고 정직한 사회를 만드는 데 기여한다","시험 점수가 오른다","키가 자란다","용돈이 늘어난다"],0,"4문단 5째 문장","권리 보호와 정직한 사회에 기여해요."],
+[2,"글쓴이의 의견을 뒷받침하는 '까닭'에 해당하는 것은?",["창작자의 시간과 노력을 인정하고 보호해야 하기 때문이다","저작권을 지켜야 한다","우리는 노력해야 한다","나는 저작권이 싫다"],0,"2문단 4째 문장","까닭은 의견이 옳은 이유예요."],
+[2,"글쓴이가 이 글을 쓴 의도(중심 생각)로 가장 알맞은 것은?",["창작자의 권리를 보호하기 위해 저작권을 지키자는 것","저작권을 팔자는 것","좋은 작품을 많이 사자는 것","친구와 싸우지 말자는 것"],0,"4문단 마지막 문장","글쓴이는 저작권을 지키자고 말하고 있어요."]];
+const PR=[['제목을 보고 내용 짐작하기',0],['내가 아는 것 떠올리기',0],['중심 생각(글쓴이의 의도) 찾기',1],['문단별 중심 내용 찾기',1],['새롭게 알게 된 것 찾기',1],['예상한 내용이 맞는지 확인하기',1],['글 내용 요약하기',2],['더 알고 싶은 것 찾아보기',2]],PS=['읽기 전','읽는 중','읽은 후'];
+
+const OP=[["저작권을 지켜야 한다",0],["창작자의 시간과 노력을 인정하고 보호해야 하기 때문이다",1],["우리는 허락을 받고 창작물을 이용해야 한다",0],["창작자가 더 좋은 작품을 만들 노력을 하지 않게 되기 때문이다",1],["친구의 작품도 허락을 받고 써야 한다",0],["문화 산업이 발전하지 못해 경제 성장도 기대할 수 없기 때문이다",1],["저작권을 침해했다면 바로 인정하고 수정해야 한다",0],["허락 없이 쓰면 시간과 정성을 도둑맞은 것 같기 때문이다",1]];
+const PL=[];
+H.forEach((q,i)=>PL.push({id:'h'+i,l:q[0],g:()=>{const c=q[2][q[3]],o=shuf(q[2]);return{l:q[0],q:q[1],o,a:o.indexOf(c),h:q[4],e:q[5]}}}));
+PR.forEach((p,i)=>PL.push({id:'p'+i,l:1,g:()=>({l:1,q:`“${p[0]}”은(는) 읽기 과정 중 언제 하는 활동일까요?`,o:PS,a:p[1],h:'읽기 전·중·후 활동을 떠올려 봐요',e:'정답: '+PS[p[1]]})}));
+OP.forEach((p,i)=>PL.push({id:'c'+i,l:p[1]?2:1,g:()=>({l:p[1]?2:1,t:'cls',q:'글쓴이의 생각이라면 이 문장은 <b>의견</b>일까요, <b>까닭</b>일까요?<br>“'+p[0]+'”',o:['🔴 의견','🔵 까닭'],a:p[1],h:'의견은 하고 싶은 말, 까닭은 그렇게 생각한 이유',e:p[1]?'그렇게 생각한 이유라서 까닭이에요.':'하고 싶은 말(주장)이라서 의견이에요.'})}));
+[4,5,6].forEach(n=>PL.push({id:'mt'+n,l:n==4?1:2,g:()=>({l:n==4?1:2,t:'match',q:'낱말과 알맞은 뜻을 짝지어 보세요. (낱말을 누르고 뜻을 누르기)',p:shuf(V).slice(0,n),h:'낱말 카드 뜻을 떠올려 봐요',e:'모두 짝을 맞혔어요!'})}));
+KS.forEach(k=>{const st=clean(k.s.replace(k.m,'@@')).replace('@@','___'),L=k.a.length>3?1:0;
+PL.push({id:'m'+k.id,l:L,g:()=>{const o=shuf([k.a,k.w,...shuf([...new Set(KS.map(x=>x.a))].filter(x=>x!=k.a&&x!=k.w)).slice(0,2)]);return{l:L,q:'빈칸에 알맞은 말은?<br>“'+st+'”',o,a:o.indexOf(k.a),h:ref(k),e:'정답: '+k.a}}});
+PL.push({id:'t'+k.id,l:L+1,g:()=>({l:L+1,t:'fill',q:'빈칸에 알맞은 말을 직접 써 보세요. ('+k.a.length+'글자)<br>“'+st+'”',ans:[k.a],h:ref(k),e:'정답: '+k.a})});
+[1,0].forEach(tr=>PL.push({id:'x'+tr+k.id,l:tr?0:1,g:()=>({l:tr?0:1,t:'ox',q:'글의 내용과 같은 문장일까요?<br>“'+clean(tr?k.s:k.s.replace(k.m,k.w))+'”',o:['⭕ 같다','❌ 다르다'],a:tr?0:1,h:ref(k),e:tr?'글에 나온 그대로예요.':'바른 낱말은 “'+k.a+'”이에요.'})}))});
+A.forEach((p,pi)=>{for(let s=0;s+3<=p.length;s++)PL.push({id:'o'+pi+'.'+s,l:2,g:()=>({l:2,t:'order',q:'문장을 글의 차례대로 눌러 보세요.',o:p.slice(s,s+3).map(clean),h:`${pi+1}문단 ${s+1}~${s+3}째 문장`,e:'차례대로 정확해요!'})})});
+let Z={ok:0,cb:0},rc=[];
+function lobby(){$('#qz').innerHTML=`<p>문제를 <b>맞힐 때마다 🎡 놀이공원 한 부분</b>(대관람차·텐트·풍선·나무·꽃·무지개·하늘…)이 칠해져요. 전부 칠하려면 <b>60문제</b>를 맞혀야 해요! 콤보는 점수를 키워 줘요.<br>문제 유형: <b>4지선다 · O/X · 의견/까닭 · 빈칸 쓰기 · 순서 맞추기 · 낱말 짝 맞추기 · 읽기 과정</b></p><p>📚 문제 은행 <b>${PL.length}</b>문제 · 🔥 최고 콤보 <b>${S.best}</b></p><button class="btn" style="--c:#ff7b7b" onclick="begin()">🎨 색칠 시작!</button>`}
+function begin(){Z={ok:0,cb:0};bq()}
+function pickQ(){const mx=Math.min(2,Z.ok/6|0),lv=Math.random()<.6?mx:Math.random()*(mx+1)|0;let c=PL.filter(p=>p.l==lv&&!rc.includes(p.id));if(!c.length){rc=[];c=PL.filter(p=>p.l==lv)}const p=c[Math.random()*c.length|0];rc.push(p.id);if(rc.length>14)rc.shift();return p.g()}
+function ob(par,txt,c,fn){const b=document.createElement('button');b.className='opt';b.style.setProperty('--c',c);b.textContent=txt;b.onclick=fn;par.appendChild(b);return b}
+function bq(){const q=Z.q=pickQ();Z.t=0;Z.h=0;Z.done=0;$('#qz').innerHTML=`<div class="hud2"><span id="zs"></span></div><div class="q">${q.q}</div><div id="bo"></div><div id="bm"></div><button class="btn" id="bh">💡 힌트</button> <button class="btn" id="bn" style="display:none;--c:#5eead4">다음 ▶</button>`;const bo=$('#bo');
+if(q.t=='fill'){bo.innerHTML='<input type="text" id="fi" placeholder="정답을 써 보세요" autocomplete="off" style="width:62%"> <button class="btn" id="fb" style="--c:#8fb4ff">확인</button>';const go=e=>{if(Z.done)return;const v=norm($('#fi').value);if(!v)return;const ok=q.ans.some(a=>norm(a)==v);$('#fi').className=ok?'good':'bad';judge(ok,e)};$('#fb').onclick=go;$('#fi').onkeydown=e=>{if(e.key=='Enter')go()}}
+else if(q.t=='order'){let pk=[];const bl=[];bo.innerHTML='<div class="hint">눌러서 순서를 만들어요 (1번째부터)</div><div id="oc"></div>';shuf(q.o.map((_,i)=>i)).forEach(i=>{const b=ob($('#oc'),q.o[i],'#fff',e=>{if(Z.done||b.disabled)return;b.disabled=1;pk.push(i);b.textContent=pk.length+'. '+q.o[i];b.style.setProperty('--c',COL[pk.length-1]);if(pk.length==q.o.length){const ok=pk.every((x,j)=>x==j);if(!ok){pk=[];bl.forEach(x=>{x.disabled=0;x.textContent=x.dataset.t;x.style.setProperty('--c','#fff')})}judge(ok,e)}});b.dataset.t=q.o[i];bl.push(b)})}
+else if(q.t=='match'){let sel=null,dn=0;bo.innerHTML='<div class="mt"><div id="ml"></div><div id="mr"></div></div>';[['ml',0],['mr',1]].forEach(([id,sd])=>shuf(q.p.map((_,i)=>i)).forEach(i=>{const b=ob($('#'+id),q.p[i][sd],'#fff',e=>{if(Z.done||b.disabled)return;if(!sel||sel.s==sd){if(sel)sel.b.style.setProperty('--c','#fff');sel={b,i,s:sd};b.style.setProperty('--c','#ffd23f');return}
+if(sel.i==i){const c=COL[dn%4];[sel.b,b].forEach(x=>{x.style.setProperty('--c',c);x.disabled=1});sel=null;dn++;sfx(1);if(dn==q.p.length)judge(true,e)}else{sel.b.style.setProperty('--c','#fff');sel=null;judge(false,e)}})}))}
+else{const cs=q.t=='ox'?[COL[2],COL[0]]:q.t=='cls'?[COL[0],COL[3]]:COL;q.o.forEach((x,j)=>{const b=ob(bo,x,cs[j%cs.length],e=>judge(j==q.a,e,b))})}
+$('#bh').onclick=()=>{Z.h=1;$('#bm').innerHTML='<div class="hint">📖 힌트: '+q.h+' 부분을 다시 읽어 봐!</div>'};$('#bn').onclick=bq;zs()}
+function zs(){$('#zs').textContent=`🔥 콤보 ${Z.cb} · ✅ 정답 ${Z.ok}`}
+function judge(ok,e,el){if(Z.done)return;const q=Z.q;
+if(ok){Z.done=1;$$('#bo button,#bo input').forEach(x=>x.disabled=1);if(el)el.classList.add('ok');Z.cb++;Z.ok++;S.best=Math.max(S.best,Z.cb);const g=Math.round([10,20,30][q.l]*(Z.t?.5:Z.h?.7:1)*(1+Math.min(Z.cb,6)*.25));add(g);const n=paint('C');sfx(1);fx(e);$('#bm').innerHTML=`<div class="hint">✅ +${g}점 · ${n?'🎡 놀이공원 한 부분 색칠!':'🎡 놀이공원은 이미 완성!'} · ${q.e} (📖 ${q.h})</div>`;$('#bn').style.display='inline-block';save();zs()}
+else{if(el){el.classList.add('no');el.disabled=1}let m='💢 아쉬워요! 💡 힌트를 눌러 봐요.';Z.t=1;Z.cb=0;sfx(0);$('#bm').innerHTML='<div class="hint">'+m+'</div>';zs()}}
+render();lobby();if(allDone())finale();
+</script></body></html>
+
+</body></html>
